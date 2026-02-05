@@ -4,14 +4,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Code checked out from GitHub'
+                checkout scm
             }
         }
 
-        stage('Build') {
+        stage('Build with Maven') {
             steps {
-                echo 'Building the project'
-                bat 'dir'
+                bat 'mvn clean compile'
             }
         }
     }
